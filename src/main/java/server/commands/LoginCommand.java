@@ -40,7 +40,11 @@ public class LoginCommand implements iCommand{
 
             client.getOutStream().println("endResponse");
 	}
+
+    public String getArg() {
+        return arg;
+    }
     
-   
+        
     
 }

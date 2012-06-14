@@ -1,18 +1,22 @@
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package server.model;
 
-import static org.junit.Assert.*;
-
 import java.util.Scanner;
-
+import org.junit.AfterClass;
 import org.junit.Test;
+import static org.junit.Assert.*;
+import org.junit.BeforeClass;
 
-import server.model.Client;
-import server.model.ClientList;
-import server.model.NameAlredyExistException;
-
+/**
+ *
+ * @author nick
+ */
 public class ClientListTest {
- 
-	@Test(expected=NameAlredyExistException.class)
+    
+    @Test(expected=NameAlredyExistException.class)
 	public void testSameName() throws NameAlredyExistException{
 		ClientList lst = ClientList.getInstance();
 		

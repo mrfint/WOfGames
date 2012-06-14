@@ -10,7 +10,7 @@ import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import server.SocketSever.commands.LoginCommand;
+import server.commands.LoginCommand;
 import server.model.Client;
 import server.model.ClientList;
 import server.model.NameAlredyExistException;

@@ -1,6 +1,6 @@
 package server.SocketSever;
 
-import server.SocketSever.commands.LoginCommand;
+import server.commands.LoginCommand;
 import server.model.Client;
 
 public class CommandFactory {
@@ -18,10 +18,6 @@ public class CommandFactory {
 		{
 			res = new LoginCommand(args, client);
 		}
-		
-		
-		
-		
 		
 		return res;
 	}
