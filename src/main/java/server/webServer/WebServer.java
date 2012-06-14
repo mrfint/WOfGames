@@ -15,18 +15,18 @@ public class WebServer implements Runnable
 
     		// establish HTTP - server socket
             ServerSocket s;
-			try {
-				s = new ServerSocket(8080);
-				
-				while (true) {
-	                Thread t= new WebServerListener(s.accept());
-	                t.start();
-	            }
-				
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+            try {
+                    s = new ServerSocket(8080);
+
+                    while (true) {
+                        Thread t= new WebServerListener(s.accept());
+                        t.start();
+                    }
+
+            } catch (IOException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+            }
             
 
    }

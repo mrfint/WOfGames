@@ -1,5 +1,6 @@
 package server.SocketSever;
 
+import server.commands.SuggestGameCommand;
 import server.commands.LoginCommand;
 import server.model.Client;
 
@@ -16,7 +17,11 @@ public class CommandFactory {
 		{
 			res = new LoginCommand(args, client);
 		}
-		
+		if(comm.equals("SuggestGame"))
+		{
+			res = new SuggestGameCommand(args, client);
+		}
+                
 		return res;
 	}
 	

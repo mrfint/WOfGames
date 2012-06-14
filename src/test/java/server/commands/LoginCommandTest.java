@@ -12,17 +12,20 @@ import org.junit.BeforeClass;
 import server.SocketSever.CommandFactory;
 import server.SocketSever.SocketListener;
 import server.model.Client;
+import sun.misc.Cleaner;
 
 
 public class LoginCommandTest {
     
+   
+   
    @Test
-	public void test() {
-            LoginCommand l = (LoginCommand) CommandFactory.getInstance("ConnectMe: Vasia", new Client());
-            
-            assertEquals("Vasia", l.getArg());
-            
-            l = (LoginCommand) CommandFactory.getInstance("ConnectMe: Vasia2", new Client());
-            assertEquals("Vasia2", l.getArg());
-	}
+    public void test() {
+        LoginCommand l = (LoginCommand) CommandFactory.getInstance("ConnectMe: Vasia", new Client());
+
+        assertEquals("Vasia", l.getArg());
+
+        l = (LoginCommand) CommandFactory.getInstance("ConnectMe: Vasia2", new Client());
+        assertEquals("Vasia2", l.getArg());
+    }
 }

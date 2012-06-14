@@ -30,10 +30,11 @@ class ProtocolControl extends Thread {
             InputStream  inStream  = incoming.getInputStream();
             OutputStream outStream = incoming.getOutputStream();
             Scanner in = new Scanner(inStream);
-           PrintWriter out = new PrintWriter(outStream, true /* autoFlush */);
+            PrintWriter out = new PrintWriter(outStream, true /* autoFlush */);
            
-            out.println("Hello");
-            
+            //out.println("Hello");
+            Client client = new Client("", inStream, outStream);   
+
            
             
           
@@ -49,12 +50,8 @@ class ProtocolControl extends Thread {
                         if (s.equals("endCommand"))  break;
                         inputData += s;
                 }
-            	System.out.println("comm   :  "+inputData);
-            	Client client = new Client("", inStream, outStream);
                 CommandFactory.getInstance(inputData, client).execute();            	
             }
-            
-
     
          }
          catch(IOException ex) {
