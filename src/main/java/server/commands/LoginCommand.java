@@ -26,16 +26,17 @@ public class LoginCommand implements iCommand{
 	public void execute() {
 		
             ClientList lstClient = ClientList.getInstance();
-
+            client.getOutStream().println("playerList:");
+            
             try {
 
                 lstClient.addClient(client);
 
-                client.getOutStream().println(lstClient.toStringWithoutSelf());
+                client.getOutStream().println(lstClient.toStringWithout(client));
 
             } catch (NameAlredyExistException e) {
 
-                client.getOutStream().println("badName");
+                client.getOutStream().println("badName:");
 
             }
 

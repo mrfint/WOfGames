@@ -11,7 +11,11 @@ import org.junit.BeforeClass;
 import server.SocketSever.CommandFactory;
 import server.model.Client;
 
-public class SuggestGameCommandTest {
+/**
+ *
+ * @author nick
+ */
+public class SuggestTest {
     
     @Test
     public void test() {
@@ -21,8 +25,8 @@ public class SuggestGameCommandTest {
        SuggestGameCommand l = (SuggestGameCommand) CommandFactory.getInstance("SuggestGame: XO, Serg", c);
 
         assertEquals("Vasia", l.getPlayer1());
-        assertEquals("Serg", l.getPlayer2());
-        assertEquals("XO", l.getGame());
+        assertEquals("Serg", l.getPlayer1());
+        assertEquals("XO", l.getPlayer1());
 
     }
 }

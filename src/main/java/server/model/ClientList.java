@@ -68,7 +68,7 @@ public class ClientList {
 		return lst.toString();
 	}
         
-        public String toStringWithoutSelf(){
+        public String toStringWithout(Client cl){
             
             StringBuilder bl = new StringBuilder();
             
