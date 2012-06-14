@@ -17,27 +17,28 @@ public class LoginCommand implements iCommand{
 	private Client client;
 
 	public LoginCommand(String arg, Client client) {
-		this.arg = arg;
-		this.client = client;
+            this.arg = arg;
+            this.client = client;
 	}
 
 	@Override
 	public void execute() {
 		
-		ClientList lstClient = ClientList.getInstance();
-		
-		try {
-        	
-			lstClient.addClient(client);
-			
-			client.getOutStream().println(lstClient.toString() + ": endResponse" );
-					
-		} catch (NameAlredyExistException e) {
-			
-			client.getOutStream().println("badName : endResponse");
-			
-		}
-		
+            ClientList lstClient = ClientList.getInstance();
+
+            try {
+
+                lstClient.addClient(client);
+
+                client.getOutStream().println(lstClient.toStringWithoutSelf());
+
+            } catch (NameAlredyExistException e) {
+
+                client.getOutStream().println("badName");
+
+            }
+
+            client.getOutStream().println("endResponse");
 	}
     
    

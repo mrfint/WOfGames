@@ -6,7 +6,7 @@ import java.util.List;
 public class ClientList {
 	
 	private static ClientList instance;
-	private static List<Client> lstClient = new ArrayList<Client>();
+	private static List<Client> lst = new ArrayList<Client>();
 	
 	
 	private ClientList() {}
@@ -24,7 +24,7 @@ public class ClientList {
 		Client tmp = find(c.getName());
 		
 		if(tmp==null){
-			lstClient.add(c);
+			lst.add(c);
 		}
 		else{
 			throw new NameAlredyExistException();
@@ -37,12 +37,12 @@ public class ClientList {
 		Client c = find(name);
 		
 		if(c!=null){ 
-			lstClient.remove(find(name));
+			lst.remove(find(name));
 		}
 	}
 	
 	public int size(){
-		return lstClient.size();
+		return lst.size();
 	}
 	
 	public Client get(String name){
@@ -51,14 +51,13 @@ public class ClientList {
 
 	private Client find(String name) {
 		Client res = null;
-		for(Client c: lstClient)
+		for(Client c: lst)
 		{
 			if(c.getName().equals(name))
 			{
 				res = c;
 				break;
 			}
-			
 		}
 		
 		return res;
@@ -66,8 +65,19 @@ public class ClientList {
 	
 	@Override
 	public String toString() {
-		return lstClient.toString();
+		return lst.toString();
 	}
+        
+        public String toStringWithoutSelf(){
+            
+            StringBuilder bl = new StringBuilder();
+            
+            for (int i = 0; i < lst.size()-1; i++) {
+                bl.append(lst.get(i).toString());
+            }
+            
+            return bl.toString();
+        }
 	
 	
 }
