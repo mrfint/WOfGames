@@ -21,5 +21,8 @@ public class LoginCommandTest {
             LoginCommand l = (LoginCommand) CommandFactory.getInstance("ConnectMe: Vasia", new Client());
             
             assertEquals("Vasia", l.getArg());
+            
+            l = (LoginCommand) CommandFactory.getInstance("ConnectMe: Vasia2", new Client());
+            assertEquals("Vasia2", l.getArg());
 	}
 }

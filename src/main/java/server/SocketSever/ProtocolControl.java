@@ -18,8 +18,8 @@ import server.model.NameAlredyExistException;
 class ProtocolControl extends Thread {
     private final Socket incoming;
     
-    ProtocolControl(Socket accept) {
-        incoming = accept;
+    ProtocolControl(Socket incoming) {
+        this.incoming = incoming;
     }
 
     @Override
@@ -30,19 +30,28 @@ class ProtocolControl extends Thread {
             InputStream  inStream  = incoming.getInputStream();
             OutputStream outStream = incoming.getOutputStream();
             Scanner in = new Scanner(inStream);
+           PrintWriter out = new PrintWriter(outStream, true /* autoFlush */);
            
-            Client client = new Client("", inStream, outStream);
+            out.println("Hello");
+            
            
-            String s; String inputData="";
+            
           
-            while(in.hasNext()){
-            	while (!(s = in.nextLine()).equals("endCommand")){
+            while(in.hasNextLine())
+            {
+            	String inputData="";    String s=""; 
+                
+                while (in.hasNextLine())
+                {
+                        s = in.nextLine();
+                	System.out.println("s  :  "+s);
                 	
-                	inputData += s;
+                        if (s.equals("endCommand"))  break;
+                        inputData += s;
                 }
-            	//System.out.println(inputData);
-            	
-                CommandFactory.getInstance(s, client).execute();            	
+            	System.out.println("comm   :  "+inputData);
+            	Client client = new Client("", inStream, outStream);
+                CommandFactory.getInstance(inputData, client).execute();            	
             }
             
 
@@ -55,10 +64,13 @@ class ProtocolControl extends Thread {
          {
             try {
                 incoming.close();
+
             } catch (IOException ex) {
                 Logger.getLogger(ProtocolControl.class.getName()).log(Level.SEVERE, null, ex);
             }
          }
+         System.out.println("Enddd");
+  
     }
     
 }

@@ -19,6 +19,7 @@ public class LoginCommand implements iCommand{
 	public LoginCommand(String arg, Client client) {
             this.arg = arg;
             this.client = client;
+            client.setName(arg);
 	}
 
 	@Override

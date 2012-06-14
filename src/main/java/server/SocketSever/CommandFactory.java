@@ -4,9 +4,7 @@ import server.commands.LoginCommand;
 import server.model.Client;
 
 public class CommandFactory {
-	
-	String arg;
-	
+
 	public static iCommand getInstance(String type, Client client){
 		
 		iCommand res = null;
