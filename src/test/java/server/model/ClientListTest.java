@@ -4,6 +4,9 @@
  */
 package server.model;
 
+import server.model.client.NameAlredyExistException;
+import server.model.client.ClientList;
+import server.model.client.Client;
 import java.util.Scanner;
 import org.junit.AfterClass;
 import org.junit.Test;

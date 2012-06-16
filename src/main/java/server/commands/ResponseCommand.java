@@ -1,9 +1,8 @@
 
 package server.commands;
 
-import server.SocketSever.iCommand;
-import server.model.Client;
-import server.model.ClientList;
+import server.model.client.Client;
+import server.model.client.ClientList;
 
 
 public class ResponseCommand implements iCommand {

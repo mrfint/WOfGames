@@ -5,10 +5,9 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
-import server.SocketSever.iCommand;
-import server.model.Client;
-import server.model.ClientList;
-import server.model.NameAlredyExistException;
+import server.model.client.Client;
+import server.model.client.ClientList;
+import server.model.client.NameAlredyExistException;
 
 
 public class LoginCommand implements iCommand{

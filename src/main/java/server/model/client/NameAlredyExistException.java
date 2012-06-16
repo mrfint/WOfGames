@@ -1,4 +1,4 @@
-package server.model;
+package server.model.client;
 
 public class NameAlredyExistException extends Exception {
 

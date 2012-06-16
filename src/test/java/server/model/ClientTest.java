@@ -4,6 +4,7 @@
  */
 package server.model;
 
+import server.model.client.Client;
 import java.util.ArrayList;
 import java.util.List;
 import org.junit.AfterClass;

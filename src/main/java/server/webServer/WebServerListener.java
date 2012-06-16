@@ -27,7 +27,7 @@ class WebServerListener extends Thread {
             StringBuilder sb = new StringBuilder();
             PrintWriter out = new PrintWriter(outStream, true /* autoFlush */);
             
-            File file = new File("index.html");
+            File file = new File("src"+File.separator+"main"+File.separator+"resources"+File.separator+"index.html");
             in = new BufferedReader(new FileReader(file));
             String s;
             while((s=in.readLine())!=null){   

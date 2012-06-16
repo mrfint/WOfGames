@@ -6,7 +6,7 @@ import org.junit.Test;
 
 import server.SocketSever.CommandFactory;
 import server.commands.LoginCommand;
-import server.model.Client;
+import server.model.client.Client;
 
 public class CommandFactoryTest {
 

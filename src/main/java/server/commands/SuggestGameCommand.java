@@ -1,9 +1,9 @@
 
 package server.commands;
 
-import server.SocketSever.iCommand;
-import server.model.Client;
-import server.model.ClientList;
+import server.model.client.Client;
+import server.model.client.ClientList;
+import server.model.games.GametList;
 
 
 public class SuggestGameCommand implements iCommand {
@@ -25,6 +25,9 @@ public class SuggestGameCommand implements iCommand {
     public void execute() {
         
         ClientList lstClient = ClientList.getInstance();
+        GametList  lstGames  = GametList.getInstance();
+        
+        //lstGames.addGame()
         
         player2.getOutStream().println("SuggestGame:" + game + ","+ player1.getName());      
         player2.getOutStream().println("endResponse");

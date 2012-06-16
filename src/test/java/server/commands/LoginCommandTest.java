@@ -11,7 +11,7 @@ import static org.junit.Assert.*;
 import org.junit.BeforeClass;
 import server.SocketSever.CommandFactory;
 import server.SocketSever.SocketListener;
-import server.model.Client;
+import server.model.client.Client;
 import sun.misc.Cleaner;
 
 

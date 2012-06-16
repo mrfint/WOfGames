@@ -1,5 +1,5 @@
 
-package server.SocketSever;
+package server.commands;
 
 
 public interface iCommand {

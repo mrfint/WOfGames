@@ -11,9 +11,9 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import server.commands.LoginCommand;
-import server.model.Client;
-import server.model.ClientList;
-import server.model.NameAlredyExistException;
+import server.model.client.Client;
+import server.model.client.ClientList;
+import server.model.client.NameAlredyExistException;
 
 class ProtocolControl extends Thread {
     private final Socket incoming;
@@ -37,11 +37,9 @@ class ProtocolControl extends Thread {
             {
             	String inputData="";    String s=""; 
                 
-                while (in.hasNextLine())
+                
+                while (in.hasNextLine()&&(!(s=in.nextLine()).equals("endCommand")))
                 {
-                        s = in.nextLine();
-                	
-                        if (s.equals("endCommand"))  break;
                         inputData += s;
                 }
                 CommandFactory.getInstance(inputData, client).execute();            	

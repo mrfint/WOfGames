@@ -1,9 +1,10 @@
 package server.SocketSever;
 
+import server.commands.iCommand;
 import server.commands.SuggestGameCommand;
 import server.commands.LoginCommand;
 import server.commands.ResponseCommand;
-import server.model.Client;
+import server.model.client.Client;
 
 public class CommandFactory {
 

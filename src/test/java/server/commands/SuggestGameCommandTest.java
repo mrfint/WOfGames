@@ -9,7 +9,7 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 import org.junit.BeforeClass;
 import server.SocketSever.CommandFactory;
-import server.model.Client;
+import server.model.client.Client;
 
 public class SuggestGameCommandTest {
     
