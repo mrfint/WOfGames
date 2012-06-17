@@ -10,7 +10,7 @@ import server.model.client.ClientList;
 import server.model.client.NameAlredyExistException;
 
 
-public class NulllCommand implements iCommand{
+public class NullCommand implements iCommand{
 	
 
 	@Override

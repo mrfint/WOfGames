@@ -37,7 +37,6 @@ class ProtocolControl extends Thread {
             {
             	String inputData="";    String s=""; 
                 
-                
                 while (in.hasNextLine()&&(!(s=in.nextLine()).equals("endCommand")))
                 {
                         inputData += s;
