@@ -27,7 +27,7 @@ public class CommandFactory {
                     res = new SuggestGameCommand(args, client);
 		}
                 if(comm.equals("Response"))		{
-                    res = new ResponseCommand(args, client);
+                    res = new ResponseGameCommand(args, client);
 		}
                 
 		return res ;

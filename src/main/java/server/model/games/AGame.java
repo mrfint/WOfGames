@@ -6,10 +6,10 @@ import java.util.List;
 import server.model.client.Client;
 
 
-public class AGame {
-    public static long counter = 0;
+abstract public class AGame {
+    public static int counter = 0;
     protected List<Client> lst;
-    private long id;
+    private int id;
     
 
     public AGame(Client c){
@@ -23,9 +23,13 @@ public class AGame {
         lst.add(c);
     }
 
-    public long getId() {
+    public int getId() {
         return id;
     }
+    public int getQualOfPlayers(){
+        return lst.size();
+    }
+            
     
     public boolean hasRespond(){
         boolean res = false;
@@ -39,6 +43,23 @@ public class AGame {
         }
         return res;
     }
+
+    public void start() {
+        
+        for(Client client:lst){
+            client.getOutStream().println("GameStart:");
+            client.getOutStream().println("endResponse:");          
+        }
+        
+        play();
+        
+        for(Client client:lst){
+            client.getOutStream().println("GameEnd:");
+            client.getOutStream().println("endResponse:");          
+        }
+    }
+
+    abstract public void play();
     
     
 }

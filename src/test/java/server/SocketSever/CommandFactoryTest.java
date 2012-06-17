@@ -10,7 +10,7 @@ import org.junit.runners.Parameterized;
 
 import server.SocketSever.CommandFactory;
 import server.commands.LoginCommand;
-import server.commands.ResponseCommand;
+import server.commands.ResponseGameCommand;
 import server.commands.SuggestGameCommand;
 import server.commands.iCommand;
 import server.model.client.Client;

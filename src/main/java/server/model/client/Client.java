@@ -11,8 +11,20 @@ public class Client {
 	private Scanner  inStream;
 	private PrintWriter outStream;
 	
+        
+        public static final int FREE = 0;
+        public static final int BUSY = 1;
 	
-	
+	private int state = FREE;
+
+    public int getState() {
+        return state;
+    }
+
+    public void setState(int state) {
+        this.state = state;
+    }
+        
 	public Client() {
 	}
 
