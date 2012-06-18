@@ -1,10 +1,7 @@
 package server.SocketSever;
 
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.io.PrintWriter;
+import java.io.*;
 import java.net.Socket;
 import java.net.UnknownHostException;
 import java.util.Scanner;
@@ -22,7 +19,8 @@ public class ClientSocketDemo {
             InputStream inStream = s.getInputStream();
             OutputStream outStream = s.getOutputStream();
             
-            Scanner in = new Scanner(inStream);
+//            Scanner in = new Scanner(inStream);
+            BufferedReader in = new BufferedReader(new InputStreamReader(inStream));
             Scanner in_cmd = new Scanner(System.in);
             PrintWriter out = new PrintWriter(outStream, true );
             String ss;
@@ -36,11 +34,12 @@ public class ClientSocketDemo {
                 while (!(ss).equals("endCommand"));
                    
                 String line="";
-                while (in.hasNextLine()&&(!(line=in.nextLine()).equals("endResponse"))) {
-                    
-                    System.out.println(line);
+                if(in.ready()){
+                    while ((!(line=in.readLine()).equals("endResponse"))) {
+
+                        System.out.println(line);
+                    }
                 }
-                   
                 
             }
             finally{

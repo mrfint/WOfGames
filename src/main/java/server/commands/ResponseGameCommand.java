@@ -4,7 +4,7 @@ package server.commands;
 import server.model.client.Client;
 import server.model.client.ClientList;
 import server.model.games.AGame;
-import server.model.games.GameList;
+import server.model.games.GameListOld;
 
 
 public class ResponseGameCommand implements iCommand {
@@ -28,7 +28,7 @@ public class ResponseGameCommand implements iCommand {
         
         ClientList lstClient = ClientList.getInstance();
         
-        GameList lstGame = GameList.getInstance();
+        GameListOld lstGame = GameListOld.getInstance();
         
         AGame game = lstGame.get(idGame);
         if(player1.getState()==Client.BUSY)

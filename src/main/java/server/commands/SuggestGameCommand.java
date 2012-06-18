@@ -4,7 +4,7 @@ package server.commands;
 import server.model.client.Client;
 import server.model.client.ClientList;
 import server.model.games.AGame;
-import server.model.games.GameList;
+import server.model.games.GameListOld;
 import server.model.games.X0game;
 
 
@@ -27,7 +27,7 @@ public class SuggestGameCommand implements iCommand {
     public void execute() {
         
         ClientList lstClient = ClientList.getInstance();
-        GameList  lstGames  = GameList.getInstance();
+        GameListOld  lstGames  = GameListOld.getInstance();
         
         AGame game = new X0game(player1);       // insert there factory of games
         
