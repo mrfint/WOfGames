@@ -34,11 +34,11 @@ public class ClientSocketDemo {
                 while (!(ss).equals("endCommand"));
                    
                 String line="";
-                if(in.ready()){
+                //if(in.ready()){
                     while ((!(line=in.readLine()).equals("endResponse"))) {
 
                         System.out.println(line);
-                    }
+                 //   }
                 }
                 
             }

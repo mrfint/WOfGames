@@ -72,7 +72,7 @@ public class ClientList {
             
             StringBuilder bl = new StringBuilder();
             
-            for (int i = 0; i < lst.size()-1; i++) {
+            for (int i = 0; i < lst.size(); i++) {
                 bl.append(lst.get(i).toString());
             }
             

@@ -27,11 +27,10 @@ public class SuggestGameCommand implements iCommand {
     public void execute() {
         
         ClientList lstClient = ClientList.getInstance();
-        GameListOld  lstGames  = GameListOld.getInstance();
         
         AGame game = new X0game(player1);       // insert there factory of games
         
-        lstGames.addGame(game);
+        //lstGames.addGame(game);
         
         player2.getOutStream().println("SuggestGame:" + game + ","+ player1.getName()+","+game.getId());      
         player2.getOutStream().println("endResponse");
