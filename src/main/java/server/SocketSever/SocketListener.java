@@ -5,6 +5,8 @@ import java.net.*;
 import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import server.model.client.Client;
+import server.model.client.ClientSocket;
 
 
 public class SocketListener implements Runnable
@@ -20,7 +22,8 @@ public class SocketListener implements Runnable
             s = new ServerSocket(8189);
         
             while (true) {
-                Thread t= new ProtocolControl(s.accept());
+                Client client = new ClientSocket(s.accept());
+                Thread t= new ProtocolControl(client);
                 t.start();
             }
             

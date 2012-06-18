@@ -35,13 +35,13 @@ public class ClientListTest {
 		ClientList lst = ClientList.getInstance();
 		System.out.println("!!"+lst);
 		if(lst.size()>0){
-			lst.removeClient("Nick");
-			lst.removeClient("Tom");
+//			lst.removeClient("Nick");
+//			lst.removeClient("Tom");
 		}
 		else{
 			lst.addClient(new Client("Nick", new Scanner(""), null));
-			lst.removeClient("Nick");
-			lst.removeClient("Tom");
+//			lst.removeClient("Nick");
+//			lst.removeClient("Tom");
 		}
 		
 		assertEquals(0, lst.size());

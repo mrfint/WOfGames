@@ -13,50 +13,41 @@ import java.util.logging.Logger;
 import server.commands.LoginCommand;
 import server.model.client.Client;
 import server.model.client.ClientList;
+import server.model.client.ClientSocket;
 import server.model.client.NameAlredyExistException;
 
 class ProtocolControl extends Thread {
-    private final Socket incoming;
     
-    ProtocolControl(Socket incoming) {
-        this.incoming = incoming;
+    private final Client client;
+    
+    ProtocolControl(Client client) {
+        this.client = client;
     }
 
     @Override
     public void run() {
 
-         try
-         {
-            InputStream  inStream  = incoming.getInputStream();
-            OutputStream outStream = incoming.getOutputStream();
-            Scanner in = new Scanner(inStream);
-           
-            Client client = new Client("", inStream, outStream);   
-       
-            while(in.hasNextLine())
-            {
-            	String inputData="";    String s=""; 
-                
-                while (in.hasNextLine()&&(!(s=in.nextLine()).equals("endCommand")))
-                {
-                        inputData += s;
-                }
-                CommandFactory.getInstance(inputData, client).execute();            	
-            }
-    
-         }
-         catch(IOException ex) {
-                Logger.getLogger(ProtocolControl.class.getName()).log(Level.SEVERE, null, ex);
-         }
-         finally
-         {
-            try {
-                incoming.close();
+        try
+        {
 
-            } catch (IOException ex) {
-                Logger.getLogger(ProtocolControl.class.getName()).log(Level.SEVERE, null, ex);
+            String inputData="";    String s=""; 
+
+            while ((!(s=client.receive()).toLowerCase().equals("endcommand")))
+            {
+                    inputData += s;
             }
-         }
+
+            System.out.println(">>"+inputData);
+
+            CommandFactory.getInstance(inputData, client).execute();            	
+
+
+        }
+        catch(IOException ex) {
+            Logger.getLogger(ProtocolControl.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        
     }
     
 }

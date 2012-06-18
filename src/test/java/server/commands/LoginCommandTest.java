@@ -20,11 +20,13 @@ public class LoginCommandTest {
    
    @Test
     public void test() {
-        LoginCommand l = (LoginCommand) CommandFactory.getInstance("ConnectMe: Vasia", new Client());
+        Client s = new Client();
+        LoginCommand l = (LoginCommand) CommandFactory.getInstance("ConnectMe: Vasia", s);
 
-        assertEquals("Vasia", l.getArg());
+        assertEquals("Vasia", s.getName());
 
-        l = (LoginCommand) CommandFactory.getInstance("ConnectMe: Vasia2", new Client());
-        assertEquals("Vasia2", l.getArg());
+        s = new Client();
+        l = (LoginCommand) CommandFactory.getInstance("ConnectMe: Vasia2", s);
+        assertEquals("Vasia2", s.getName());
     }
 }

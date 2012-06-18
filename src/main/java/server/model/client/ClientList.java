@@ -1,6 +1,7 @@
 package server.model.client;
 
 import java.util.ArrayList;
+import java.util.Hashtable;
 import java.util.List;
 
 public class ClientList {
@@ -32,13 +33,8 @@ public class ClientList {
 		
 	}
 	
-	public void removeClient(String name){
-		
-		Client c = find(name);
-		
-		if(c!=null){ 
-			lst.remove(find(name));
-		}
+	public void removeClient(Client c){
+		lst.remove(c);
 	}
 	
 	public int size(){
@@ -70,14 +66,18 @@ public class ClientList {
         
         public String toStringWithout(Client cl){
             
-            StringBuilder bl = new StringBuilder();
-            
-            for (int i = 0; i < lst.size(); i++) {
-                bl.append(lst.get(i).toString());
-            }
-            
-            return bl.toString();
+                StringBuilder bl = new StringBuilder();
+
+                for (int i = 0; i < lst.size(); i++) {
+                    bl.append(lst.get(i).toString());
+                }
+
+                return bl.toString();
         }
+
+    public Client get(int i) {
+        return lst.get(i);
+    }
 	
 	
 }

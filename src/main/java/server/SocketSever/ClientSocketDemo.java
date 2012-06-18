@@ -25,20 +25,21 @@ public class ClientSocketDemo {
             PrintWriter out = new PrintWriter(outStream, true );
             String ss;
             try
-            {
+            {   
+                while(true){
                 do {
 
                     ss=in_cmd.nextLine();//+"\r\nendCommand";
                     out.println(ss);
                 }
-                while (!(ss).equals("endCommand"));
+                while (!(ss).toLowerCase().equals("endcommand"));
                    
                 String line="";
                 //if(in.ready()){
-                    while ((!(line=in.readLine()).equals("endResponse"))) {
+                    while ((!(line=in.readLine()).toLowerCase().equals("endresponse"))) {
 
                         System.out.println(line);
-                 //   }
+                    }
                 }
                 
             }

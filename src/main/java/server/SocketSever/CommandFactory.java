@@ -16,17 +16,16 @@ public class CommandFactory {
                 }
                 catch(StringIndexOutOfBoundsException e){
                     res = new NullCommand();
-                }
+                }		
 		
-		
-		if(comm.equals("ConnectMe"))            {
+		if(comm.toLowerCase().equals("connectme"))            {
                     res = new LoginCommand(args, client);
 		}
                 
-		if(comm.equals("SuggestGame"))		{
+		if(comm.toLowerCase().equals("suggestgame"))		{
                     res = new SuggestGameCommand(args, client);
 		}
-                if(comm.equals("Response"))		{
+                if(comm.toLowerCase().equals("response"))		{
                     res = new ResponseGameCommand(args, client);
 		}
                 

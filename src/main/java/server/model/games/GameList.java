@@ -9,7 +9,7 @@ import java.util.List;
 public class GameList {
 	
 	private static GameList instance;
-	private static HashMap<Integer, AGame> lst = new HashMap<Integer, AGame>();
+	private static HashMap<Integer, Game> lst = new HashMap<Integer, Game>();
 	
 	
 	private GameList() {}
@@ -22,7 +22,7 @@ public class GameList {
 		return instance;
 	}
 	
-	public void addGame(AGame game){
+	public void addGame(Game game){
 		
 		lst.put(game.getId(),game);
 		
@@ -37,7 +37,7 @@ public class GameList {
 		return lst.size();
 	}
 	
-	public AGame get(int i){
+	public Game get(int i){
 		return lst.get(i);
 	}
 
@@ -47,7 +47,7 @@ public class GameList {
 	}
         
        
-	public void remove (AGame game){
+	public void remove (Game game){
             lst.remove(game.getId());
         }
 

@@ -1,21 +1,27 @@
+
 package server.model.client;
 
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.io.PrintWriter;
-import java.util.Scanner;
+import java.io.IOException;
 
-public class Client {
-	
-	private String name;
-	private Scanner  inStream;
-	private PrintWriter outStream;
-	
-        
-        public static final int FREE = 0;
-        public static final int BUSY = 1;
-	
-	private int state = FREE;
+
+abstract public class Client {
+    String name = "";
+    private int state = 0;
+    
+    public static final int FREE = 0;
+    public static final int BUSY = 1;
+
+    public abstract void send(String message);
+    public abstract String receive() throws IOException;
+    public abstract boolean hasIncoming() throws IOException;
+    
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 
     public int getState() {
         return state;
@@ -25,44 +31,10 @@ public class Client {
         this.state = state;
     }
         
-	public Client() {
-	}
-
-	public Client(String name, Scanner inputStream, PrintWriter oStream) {
-		this.name = name;
-		this.inStream = inputStream;
-		this.outStream = oStream;
-	}
-	
-	public Client(String name, InputStream inStream, OutputStream outStream) {
-		this.name = name;		
-		this.inStream = new Scanner(inStream);
-		this.outStream = new PrintWriter(outStream, true);
-	}
-
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
-	public Scanner getInputStream() {
-		return inStream;
-	}
-	public void setInputStream(Scanner inputStream) {
-		this.inStream = inputStream;
-	}
-	public PrintWriter getOutStream() {
-		return outStream;
-	}
-	public void setOutStream(PrintWriter oStream) {
-		this.outStream = oStream;
-	}
-
-	@Override
-	public String toString() {
-		return name + ";";
-	}
-	
-	
+        
+    @Override
+    public String toString() {
+            return name + ",";
+    }
+        
 }
