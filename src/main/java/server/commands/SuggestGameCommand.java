@@ -19,7 +19,7 @@ public class SuggestGameCommand implements iCommand {
         String[] q = args.split(",");
         
         game = q[0].trim();
-        player2 = ClientList.getInstance().get( q[1].trim() );
+        player2 = ClientList.getInstance().getByName( q[1].trim() );
     
     }
     

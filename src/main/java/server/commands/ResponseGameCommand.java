@@ -19,7 +19,7 @@ public class ResponseGameCommand implements iCommand {
         player2 = client;
         String[] q = args.split(",");
         game = q[0].trim();
-        player1 = ClientList.getInstance().get( q[1].trim() );
+        player1 = ClientList.getInstance().getByName( q[1].trim() );
         idGame = Integer.parseInt(q[2].trim());
     }
     
@@ -35,14 +35,19 @@ public class ResponseGameCommand implements iCommand {
         if(player1.getState()==Client.BUSY)
         {
            lstGame.remove(game); 
-           player2.send("Fail");
+           player2.send("Fail:");
            player2.send("endResponse");
         }
         else{
+           lstClient.removeClient(player1);
+           lstClient.removeClient(player2);
+           
            player1.setState(Client.BUSY);
            player2.setState(Client.BUSY);
+           game.addPlayer(player2);
            
            game.start();
+           
            
         }
     }

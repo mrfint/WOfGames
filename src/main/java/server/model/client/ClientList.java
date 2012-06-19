@@ -41,7 +41,7 @@ public class ClientList {
 		return lst.size();
 	}
 	
-	public Client get(String name){
+	public Client getByName(String name){
 		return find(name);
 	}
 
