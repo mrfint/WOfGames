@@ -30,13 +30,13 @@ public class LoginCommand implements iCommand{
 
                 lstClient.addClient(client);
                 
-                client.send("playerList:");
+                client.send("_playerList");
 
                 client.send(lstClient.toStringWithout(client));
 
             } catch (NameAlredyExistException e) {
 
-                client.send("badName:");
+                client.send("ConnectFrameEventHandler_badName");
 
             }
 
