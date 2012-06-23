@@ -4,17 +4,17 @@ import java.util.ArrayList;
 
 public class MyEventProducer
 {
-  private ArrayList<MyListener> listeners = new ArrayList<MyListener>();
-  public void addMyListener(MyListener listener)
+  private ArrayList<iProtocolListener> listeners = new ArrayList<iProtocolListener>();
+  public void addMyListener(iProtocolListener listener)
   {
     listeners.add(listener);
   }
-  public MyListener[] getMyListeners()
+  public iProtocolListener[] getMyListeners()
   {
-    return listeners.toArray(new MyListener[listeners.size()]);
+    return listeners.toArray(new iProtocolListener[listeners.size()]);
   }
   
-  public void removeMyListener(MyListener listener)
+  public void removeMyListener(iProtocolListener listener)
   {
     listeners.remove(listener);
   }
@@ -22,14 +22,14 @@ public class MyEventProducer
   protected void fireMyWillHappend(String message)
   {
     MyEvent ev = new MyEvent(this, message);
-    for(MyListener listener : listeners)
+    for(iProtocolListener listener : listeners)
       listener.myWillHappend(ev);
   }
   
   protected void fireMyHappend(String message)
   {
     MyEvent ev = new MyEvent(this, message);
-    for(MyListener listener : listeners)
+    for(iProtocolListener listener : listeners)
       listener.myHappend(ev);
   }
   

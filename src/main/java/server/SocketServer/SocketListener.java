@@ -1,4 +1,4 @@
-package server.SocketSever;
+package server.SocketServer;
 
 import java.io.*;
 import java.net.*;
@@ -23,7 +23,8 @@ public class SocketListener implements Runnable
         
             while (true) {
                 Client client = new ClientSocket(s.accept());
-                Thread t= new ProtocolControl(client);
+                Thread t= new LoginlHandler(client);
+                
                 t.start();
             }
             
@@ -31,8 +32,10 @@ public class SocketListener implements Runnable
        {
             Logger.getLogger(SocketListener.class.getName()).log(Level.SEVERE, null, ex);
        }
+       
         
     }
+    
 }
 
 

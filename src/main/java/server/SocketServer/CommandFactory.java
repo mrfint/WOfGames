@@ -1,4 +1,4 @@
-package server.SocketSever;
+package server.SocketServer;
 
 import server.commands.*;
 import server.model.client.Client;

@@ -1,5 +1,6 @@
 package server.model.client;
 
+import eventmodel.ProtocolEvent;
 import java.io.*;
 import java.net.Socket;
 import java.util.Scanner;
@@ -37,5 +38,7 @@ public class ClientSocket extends Client{
 	public boolean hasIncoming() throws IOException {
 		return br.ready();
 	}
+
+   
 	
 }

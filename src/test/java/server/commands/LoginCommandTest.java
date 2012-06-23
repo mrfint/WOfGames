@@ -9,8 +9,8 @@ import org.junit.AfterClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 import org.junit.BeforeClass;
-import server.SocketSever.CommandFactory;
-import server.SocketSever.SocketListener;
+import server.SocketServer.CommandFactory;
+import server.SocketServer.SocketListener;
 import server.model.client.Client;
 
 

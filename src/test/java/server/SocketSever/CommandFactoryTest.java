@@ -8,7 +8,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 
-import server.SocketSever.CommandFactory;
+import server.SocketServer.CommandFactory;
 import server.commands.LoginCommand;
 import server.commands.ResponseGameCommand;
 import server.commands.SuggestGameCommand;

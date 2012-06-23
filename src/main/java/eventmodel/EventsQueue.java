@@ -9,7 +9,7 @@ public class EventsQueue {
 
     private static EventsQueue _instance = null;
 
-    private Queue<AbstractEvent> _queue = new ConcurrentLinkedQueue<AbstractEvent>();
+    private Queue<ProtocolEvent> _queue = new ConcurrentLinkedQueue<ProtocolEvent>();
 
 
     private EventsQueue() {}
@@ -22,11 +22,11 @@ public class EventsQueue {
     }
 
     @SuppressWarnings("unchecked")
-    public synchronized <T extends AbstractEvent> T fetchEvent() {
+    public synchronized <T extends ProtocolEvent> T fetchEvent() {
         return (T) _queue.poll();
     }
 
-    public synchronized void putEvent(AbstractEvent event) {
+    public synchronized void putEvent(ProtocolEvent event) {
 
         _queue.add(event);
         System.out.println("event with class: " + event.getClass().getName() + " added");

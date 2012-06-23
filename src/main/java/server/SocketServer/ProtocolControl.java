@@ -1,5 +1,5 @@
 
-package server.SocketSever;
+package server.SocketServer;
 
 import java.io.IOException;
 import java.io.InputStream;

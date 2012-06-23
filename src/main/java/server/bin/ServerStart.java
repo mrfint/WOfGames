@@ -1,6 +1,6 @@
 package server.bin;
 
-import server.SocketSever.SocketListener;
+import server.SocketServer.SocketListener;
 import server.model.client.ClientHandler;
 import server.webServer.WebServer;
 

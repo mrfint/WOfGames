@@ -3,7 +3,7 @@ package server.model.client;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import server.SocketSever.CommandFactory;
+import server.SocketServer.CommandFactory;
 
 
 public class ClientHandler implements Runnable{

@@ -1,10 +1,12 @@
 
 package server.model.client;
 
+import eventmodel.ProtocolEvent;
+import eventmodel.iProtocolListener;
 import java.io.IOException;
 
 
-abstract public class Client {
+abstract public class Client implements iProtocolListener{
     String name = "";
     private int state = 0;
     
@@ -35,6 +37,21 @@ abstract public class Client {
     @Override
     public String toString() {
             return name + ",";
+    }
+    
+    @Override
+    public void refresh(ProtocolEvent myEvent) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public void suggest(ProtocolEvent myEvent) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public void response(ProtocolEvent myEvent) {
+        throw new UnsupportedOperationException("Not supported yet.");
     }
         
 }

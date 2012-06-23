@@ -1,4 +1,4 @@
-package server.SocketSever;
+package server.SocketServer;
 
 
 import java.io.*;

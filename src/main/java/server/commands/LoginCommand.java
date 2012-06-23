@@ -1,6 +1,8 @@
 
 package server.commands;
 
+import eventmodel.EventsQueue;
+import eventmodel.ProtocolEvent;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -30,9 +32,9 @@ public class LoginCommand implements iCommand{
 
                 lstClient.addClient(client);
                 
-                client.send("_playerList");
-
-                client.send(lstClient.toStringWithout(client));
+                
+                
+                EventsQueue.getInstance().putEvent(new ProtocolEvent(client,"login"));
 
             } catch (NameAlredyExistException e) {
 
