@@ -27,8 +27,6 @@ class ProtocolControl extends Thread {
     @Override
     public void run() {
 
-        try
-        {
 
             String inputData="";    String s=""; 
 
@@ -42,10 +40,7 @@ class ProtocolControl extends Thread {
             CommandFactory.getInstance(inputData, client).execute();            	
 
 
-        }
-        catch(IOException ex) {
-            Logger.getLogger(ProtocolControl.class.getName()).log(Level.SEVERE, null, ex);
-        }
+
 
         
     }

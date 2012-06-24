@@ -1,5 +1,7 @@
 package server.SocketServer;
 
+import eventmodel.EventsQueue;
+import eventmodel.ProtocolEvent;
 import java.io.*;
 import java.net.*;
 import java.util.*;
@@ -23,9 +25,9 @@ public class SocketListener implements Runnable
         
             while (true) {
                 Client client = new ClientSocket(s.accept());
-                Thread t= new LoginlHandler(client);
                 
-                t.start();
+                EventsQueue.getInstance().putEvent( client.receive() );
+
             }
             
        } catch (IOException ex) 

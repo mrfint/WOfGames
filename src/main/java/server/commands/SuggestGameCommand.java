@@ -32,8 +32,7 @@ public class SuggestGameCommand implements iCommand {
         
         //lstGames.addGame(game);
         
-        player2.send("SuggestGame:" + game + ","+ player1.getName()+","+game.getId());      
-        player2.send("endResponse");
+        
         
         
     }

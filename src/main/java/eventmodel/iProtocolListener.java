@@ -2,9 +2,8 @@ package eventmodel;
 
 public interface iProtocolListener
 {
-  public void refresh(ProtocolEvent myEvent);
-  public void suggest(ProtocolEvent myEvent);
-  public void response(ProtocolEvent myEvent);
-  
-  
+  public void send(String ev);
+  public ProtocolEvent receive();
+  public boolean hasIncoming();
+  public String getName();
 }

@@ -32,8 +32,7 @@ class LoginlHandler extends Thread {
     public void run() {
         
         // RECEIVE MESSAGE
-        try
-        {
+
             String inputData = client.receive();
             System.out.println(">>"+inputData);
             
@@ -50,19 +49,14 @@ class LoginlHandler extends Thread {
 
             }
             catch(StringIndexOutOfBoundsException e) {
-                Logger.getLogger(LoginlHandler.class.getName()).log(Level.SEVERE, null, e);}
+                Logger.getLogger(LoginlHandler.class.getName()).log(Level.SEVERE, "My message________ : ", e);}
             catch (NameAlredyExistException e){
                 client.send("ConnectFrameEventHandler_badName");
             }
             finally{
                 client.send("endResponse");
             }
-
-        }
-        catch(IOException e) {
-            Logger.getLogger(LoginlHandler.class.getName()).log(Level.SEVERE, null, e);
-        }
-        
+            
     }
     private String parseCommand(String type) throws StringIndexOutOfBoundsException{
             String comm = type.substring(0,type.indexOf(':'));

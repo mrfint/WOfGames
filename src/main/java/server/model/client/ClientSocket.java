@@ -31,12 +31,33 @@ public class ClientSocket extends Client{
 		pw.println(message);
 	}
         @Override
-	public String receive() throws IOException {
-		return br.readLine();
+	public ProtocolEvent receive(){
+        
+            ProtocolEvent res = new ProtocolEvent(this, "");
+            
+            try {
+                res.setMessage( br.readLine() );
+            } catch (IOException ex) {
+                Logger.getLogger(ClientSocket.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+            return res;
+            
 	}
+        
         @Override
-	public boolean hasIncoming() throws IOException {
-		return br.ready();
+	public boolean hasIncoming(){
+		
+            boolean res = false;
+            
+            try {
+                res = br.ready();
+            } catch (IOException ex) {
+                Logger.getLogger(ClientSocket.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+            return res;
+                
 	}
 
    
