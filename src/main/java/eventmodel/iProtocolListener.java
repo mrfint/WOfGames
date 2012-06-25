@@ -1,5 +1,7 @@
 package eventmodel;
 
+import java.io.IOException;
+
 public interface iProtocolListener
 {
   public void send(String ev);

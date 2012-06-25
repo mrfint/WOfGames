@@ -43,11 +43,13 @@ public class ProtocolEventDispetcher extends Thread
                             break;
                         case "response" : evprod.doResponse(ev);
                             break;
-                        default: {};
+                        case "out" : evprod.doOut(ev);
+                            break;    
+                        default:   evprod.doNothing(ev); 
                     }
                 
                 }
-                catch(StringIndexOutOfBoundsException e){ }
+                catch(StringIndexOutOfBoundsException e){ evprod.doNothing(ev);}
             }
             else{
                 try {

@@ -51,7 +51,9 @@ public class ClientSocket extends Client{
             boolean res = false;
             
             try {
+                
                 res = br.ready();
+                
             } catch (IOException ex) {
                 Logger.getLogger(ClientSocket.class.getName()).log(Level.SEVERE, null, ex);
             }

@@ -43,12 +43,12 @@ public class PlayListEventsProduser{
 
             return res;
     }
-    public iProtocolListener[] getMyListeners()
+    public iProtocolListener[] getProtocolListeners()
     {
         return listeners.toArray(new iProtocolListener[listeners.size()]);
     }
   
-    public void removeMyListener(iProtocolListener listener)
+    public void removeProtocolListener(iProtocolListener listener)
     {
         listeners.remove(listener);
     }
@@ -56,6 +56,8 @@ public class PlayListEventsProduser{
     public void doConnectPlayer(ProtocolEvent ev) {
        
         iProtocolListener client = (iProtocolListener)ev.getSource();
+        // ***********************Do naming of client
+        ((Client)client).setName(ev.getMessage());
         
         try{
            addProtocolListener( client );
@@ -65,7 +67,7 @@ public class PlayListEventsProduser{
 
         }
         catch(NameAlredyExistException e){
-           client.send("ConnectFrameEventHandler._badName\r\n endResponse");
+           client.send("ConnectFrameEventHandler._badName\r\nendResponse");
        }
         
     }
@@ -122,5 +124,22 @@ public class PlayListEventsProduser{
                 break;
             }
         }
+    }
+
+    public void doOut(ProtocolEvent ev) {
+        iProtocolListener client = (iProtocolListener)ev.getSource();
+
+        removeProtocolListener( client );
+         // ******************************Add to general list of listeners
+        ClientList.getInstance().removeClient(client);
+        
+        doRefreshLst(ev);                // ***************fireAllPlayers
+       
+    }
+
+
+    public void doNothing(ProtocolEvent ev) {
+        iProtocolListener client = (iProtocolListener)ev.getSource();
+        client.send("BadCommand: \r\nendResponse");
     }
 }

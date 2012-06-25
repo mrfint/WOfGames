@@ -29,7 +29,7 @@ public class EventsQueue {
     public synchronized void putEvent(ProtocolEvent event) {
 
         _queue.add(event);
-        System.out.println("event with class: " + event.getClass().getName() + " added");
+        System.out.println("event added. Message:"+event.getMessage());
         System.out.println("queue size: " + _queue.size());
 
     }

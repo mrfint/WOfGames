@@ -9,7 +9,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 
-public class ClientSocketDemo {
+public class ClientSocketDemo1 {
      public static void main(String[] args )
    {  
        
@@ -27,16 +27,12 @@ public class ClientSocketDemo {
             String ss;
             try
             {   
-                while(true){
-//                do {
+                ss=in_cmd.nextLine();//+"\r\nendCommand";
+                out.println(ss);
+             while(true){
 
-                    ss=in_cmd.nextLine();//+"\r\nendCommand";
-                    out.println(ss);
-//                }
-//                while (!(ss).toLowerCase().equals("endcommand"));
                    
                 String line="";
-                //if(in.ready()){
                     while ((!(line=in.readLine()).toLowerCase().equals("endresponse"))) {
 
                         System.out.println(line);
