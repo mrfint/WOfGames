@@ -61,11 +61,11 @@ abstract public class Game {
     }
     
     void reseive() {
-        try {
-            inLine = lst.get(current).receive();
-        } catch (IOException ex) {
-            Logger.getLogger(Game.class.getName()).log(Level.SEVERE, null, ex);
-        }
+//        try {
+//            inLine = lst.get(current).receive();
+//        } catch (IOException ex) {
+//            Logger.getLogger(Game.class.getName()).log(Level.SEVERE, null, ex);
+//        }
     }
 
     abstract void control();

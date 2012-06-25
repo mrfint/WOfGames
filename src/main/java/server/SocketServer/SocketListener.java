@@ -23,10 +23,12 @@ public class SocketListener implements Runnable
             // establish server socket
             s = new ServerSocket(8189);
         
-            while (true) {
+            while (true) 
+            {
                 Client client = new ClientSocket(s.accept());
                 
-                EventsQueue.getInstance().putEvent( client.receive() );
+                ProtocolEvent authorization  = client.receive();
+                EventsQueue.getInstance().putEvent( authorization );
 
             }
             

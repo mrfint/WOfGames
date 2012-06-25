@@ -1,18 +1,22 @@
-package eventmodel;
+package server.bin;
 
+import eventmodel.EventsQueue;
+import eventmodel.PlayListEventsProduser;
+import eventmodel.ProtocolEvent;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.management.Query;
-import server.commands.NullCommand;
 
 public class ProtocolEventDispetcher extends Thread
 {   private String comm;
-    private EventsProduser evprod = null;
+    private String args;
+
+    private PlayListEventsProduser evprod = null;
     private final EventsQueue EVQUE = EventsQueue.getInstance();
     
     public ProtocolEventDispetcher() {
-        evprod = new EventsProduser();
+        evprod = new PlayListEventsProduser();
     }
 
     @Override
@@ -25,13 +29,17 @@ public class ProtocolEventDispetcher extends Thread
             if(ev!=null){
                 
                 try{
+                    // Parse EventMeassage
                     comm = parseCommand(ev.getMessage());                
-                
-                
+                    args = ev.getMessage().substring(comm.length()+1).trim();
+                    ev.setMessage(args);
+                    
                     switch(comm){
-                        case "refresh" : evprod.doRefreshLst(ev);
+                        case "connectme": evprod.doConnectPlayer(ev);
                             break;
-                        case "suggest" : evprod.doSuggest(ev);
+                        case "refresh"  : evprod.doRefreshLst(ev);
+                            break;
+                        case "suggest"  : evprod.doSuggest(ev);
                             break;
                         case "response" : evprod.doResponse(ev);
                             break;

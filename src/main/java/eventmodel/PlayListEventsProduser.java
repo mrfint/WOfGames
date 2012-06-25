@@ -10,7 +10,7 @@ import server.model.games.Game;
 import server.model.games.X0game;
 
 
-public class EventsProduser{
+public class PlayListEventsProduser{
     private List<iProtocolListener> listeners = new LinkedList<iProtocolListener>();
     
     public void addProtocolListener(iProtocolListener listener)throws NameAlredyExistException{
@@ -59,8 +59,10 @@ public class EventsProduser{
         
         try{
            addProtocolListener( client );
-           // fireAllPlayers
-           doRefreshLst(ev);
+           doRefreshLst(ev);                // ***************fireAllPlayers
+           // ******************************Add to general list of listeners
+           ClientList.getInstance().addClient( client );
+
         }
         catch(NameAlredyExistException e){
            client.send("ConnectFrameEventHandler._badName\r\n endResponse");
@@ -101,7 +103,7 @@ public class EventsProduser{
         for(iProtocolListener listener : listeners){
             String name = ((Client)listener).getName();
             if(suggestToName.equals(name)){
-                listener.suggest(event);
+                //listener.suggest(event);
                 break;
             }
         }
@@ -116,7 +118,7 @@ public class EventsProduser{
         for(iProtocolListener listener : listeners){
             String name = ((Client)listener).getName();
             if(responseToName.equals(name)){
-                listener.response(ev);
+                //listener.response(ev);
                 break;
             }
         }
