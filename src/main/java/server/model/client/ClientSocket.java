@@ -1,13 +1,14 @@
 package server.model.client;
 
-import eventmodel.ProtocolEvent;
+import eventmodel.EventOfProtocol;
 import java.io.*;
 import java.net.Socket;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import protocolcontrol.ProtocolListenerClient;
 
-public class ClientSocket extends Client{
+public class ClientSocket extends ProtocolListenerClient{
         
         BufferedReader br = null;
 	PrintWriter    pw = null;
@@ -22,7 +23,7 @@ public class ClientSocket extends Client{
                 pw = new PrintWriter(socket.getOutputStream(), true);
 
             } catch (IOException ex) {
-                Logger.getLogger(Client.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(ProtocolListenerClient.class.getName()).log(Level.SEVERE, null, ex);
             }
 
         }
@@ -31,9 +32,9 @@ public class ClientSocket extends Client{
 		pw.println(message);
 	}
         @Override
-	public ProtocolEvent receive(){
+	public EventOfProtocol receive(){
         
-            ProtocolEvent res = new ProtocolEvent(this, "");
+            EventOfProtocol res = new EventOfProtocol(this, "");
             
             try {
                 res.setMessage( br.readLine() );

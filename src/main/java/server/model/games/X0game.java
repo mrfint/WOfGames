@@ -1,8 +1,6 @@
 
 package server.model.games;
 
-import server.model.client.Client;
-
 
 public class X0game extends Game{
     private final int n = 3;
@@ -11,9 +9,6 @@ public class X0game extends Game{
     private int x, y;
     private boolean fWin = false;
     
-    public X0game(Client c) {
-        super(c);
-    }
 
     @Override
     void control() {
@@ -41,14 +36,14 @@ public class X0game extends Game{
 
     @Override
     void send() {
-        for (int i = 0; i < lst.size(); i++) {
-            if(i!=current) lst.get(i).send("next: "+x+","+y);
-        }
-        if(fWin){
-            for (int i = 0; i < lst.size(); i++) {
-                lst.get(i).send("Winner: "+lst.get(current).getName());
-        }
-        }
+//        for (int i = 0; i < lst.size(); i++) {
+//            if(i!=current) lst.get(i).send("next: "+x+","+y);
+//        }
+//        if(fWin){
+//            for (int i = 0; i < lst.size(); i++) {
+//                lst.get(i).send("Winner: "+lst.get(current).getName());
+//        }
+//        }
     }
 
     private void parse(String inLine) {

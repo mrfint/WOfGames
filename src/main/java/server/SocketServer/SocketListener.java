@@ -1,13 +1,13 @@
 package server.SocketServer;
 
 import eventmodel.EventsQueue;
-import eventmodel.ProtocolEvent;
+import eventmodel.EventOfProtocol;
 import java.io.*;
 import java.net.*;
 import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import server.model.client.Client;
+import protocolcontrol.ProtocolListenerClient;
 import server.model.client.ClientSocket;
 
 
@@ -25,9 +25,10 @@ public class SocketListener implements Runnable
         
             while (true) 
             {
-                Client client = new ClientSocket(s.accept());
+                ProtocolListenerClient client = new ClientSocket(s.accept());
                 
-                ProtocolEvent authorization  = client.receive();
+                EventOfProtocol authorization  = client.receive();
+                
                 EventsQueue.getInstance().putEvent( authorization );
 
             }

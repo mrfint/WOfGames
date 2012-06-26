@@ -1,22 +1,25 @@
 package server.bin;
 
-import eventmodel.EventsQueue;
-import eventmodel.PlayListEventsProduser;
-import eventmodel.ProtocolEvent;
+import protocolcontrol.FactoryProtocolEvMngr;
+import protocolcontrol.ProtocolEventMngr;
+import eventmodel.*;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.management.Query;
+import protocolcontrol.Game;
 
 public class ProtocolEventDispetcher extends Thread
-{   private String comm;
+{   
+    private String prefix;
+    private String comm;
     private String args;
 
-    private PlayListEventsProduser evprod = null;
+    private ProtocolEventMngr evprod = null;
     private final EventsQueue EVQUE = EventsQueue.getInstance();
     
     public ProtocolEventDispetcher() {
-        evprod = new PlayListEventsProduser();
+        
     }
 
     @Override
@@ -24,26 +27,35 @@ public class ProtocolEventDispetcher extends Thread
         
         while (true) {
             
-            ProtocolEvent ev = EVQUE.fetchEvent();
+            EventOfProtocol ev = EVQUE.fetchEvent();
             
             if(ev!=null){
                 
                 try{
-                    // Parse EventMeassage
-                    comm = parseCommand(ev.getMessage());                
-                    args = ev.getMessage().substring(comm.length()+1).trim();
+                    // *************************Parse EventMeassage
+                    String s = ev.getMessage();
+                    
+                    prefix = s.substring( 0, s.indexOf('_') ); 
+                    comm = s.substring( prefix.length()+1, s.indexOf(':') );                
+                    args = s.substring(comm.length()+prefix.length()+2).trim();
+                    // ************************Set only args in Event Message
                     ev.setMessage(args);
                     
+                    evprod = FactoryProtocolEvMngr.getInstance(prefix);
+
                     switch(comm){
                         case "connectme": evprod.doConnectPlayer(ev);
                             break;
-                        case "refresh"  : evprod.doRefreshLst(ev);
+                        case "refresh"  : evprod.firePlayersList(ev);
                             break;
                         case "suggest"  : evprod.doSuggest(ev);
                             break;
                         case "response" : evprod.doResponse(ev);
                             break;
-                        case "out" : evprod.doOut(ev);
+                        case "out"      : evprod.doOut(ev);
+                            break;
+                        // ************************************Special commands    
+                        case "next"     : ((Game)evprod).doNext(ev);
                             break;    
                         default:   evprod.doNothing(ev); 
                     }
@@ -61,9 +73,6 @@ public class ProtocolEventDispetcher extends Thread
         }
         
     }
-        private String parseCommand(String type) throws StringIndexOutOfBoundsException{
-            String comm = type.substring(0,type.indexOf(':'));
-            return comm;
-	}
+    
     
 }

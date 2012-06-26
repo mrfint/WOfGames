@@ -2,25 +2,25 @@ package eventmodel;
 
 import java.util.EventObject;
 
-public class ProtocolEvent extends EventObject{
+public class EventOfProtocol extends EventObject{
     
     private String            message;
 
 
-    public ProtocolEvent(Object source, String message)
+    public EventOfProtocol(Object source, String message)
     {
         super(source);
         this.message = message;
     }
-    public ProtocolEvent(Object source)
+    public EventOfProtocol(Object source)
     {
         this(source, "");
     }
-    public ProtocolEvent(String message)
+    public EventOfProtocol(String message)
     {
         this(null, message);
     }
-    public ProtocolEvent()
+    public EventOfProtocol()
     {
         this(null, "");
     }

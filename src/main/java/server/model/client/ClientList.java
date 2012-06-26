@@ -1,6 +1,6 @@
 package server.model.client;
 
-import eventmodel.iProtocolListener;
+import protocolcontrol.ProtocolListenerClient;
 import java.util.Hashtable;
 import java.util.LinkedList;
 import java.util.List;
@@ -8,7 +8,7 @@ import java.util.List;
 public class ClientList {
 	
 	private static ClientList instance;
-	private static List<iProtocolListener> lst = new LinkedList<iProtocolListener>();
+	private static List<ProtocolListenerClient> lst = new LinkedList<ProtocolListenerClient>();
 	
 	
 	private ClientList() {}
@@ -21,13 +21,13 @@ public class ClientList {
 		return instance;
 	}
 	
-	public void addClient(iProtocolListener c){
+	public void addClient(ProtocolListenerClient c){
 
                 lst.add(c);
 
 	}
 	
-	public void removeClient(iProtocolListener c){
+	public void removeClient(ProtocolListenerClient c){
 		lst.remove(c);
 	}
 	
@@ -40,7 +40,7 @@ public class ClientList {
 		return lst.toString();
         }
 
-        public iProtocolListener get(int i) {
+        public ProtocolListenerClient get(int i) {
             return lst.get(i);
         }
 	

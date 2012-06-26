@@ -9,7 +9,7 @@ public class EventsQueue {
 
     private static EventsQueue _instance = null;
 
-    private Queue<ProtocolEvent> _queue = new ConcurrentLinkedQueue<ProtocolEvent>();
+    private Queue<EventOfProtocol> _queue = new ConcurrentLinkedQueue<EventOfProtocol>();
 
 
     private EventsQueue() {}
@@ -22,11 +22,11 @@ public class EventsQueue {
     }
 
     @SuppressWarnings("unchecked")
-    public synchronized <T extends ProtocolEvent> T fetchEvent() {
+    public synchronized <T extends EventOfProtocol> T fetchEvent() {
         return (T) _queue.poll();
     }
 
-    public synchronized void putEvent(ProtocolEvent event) {
+    public synchronized void putEvent(EventOfProtocol event) {
 
         _queue.add(event);
         System.out.println("event added. Message:"+event.getMessage());
