@@ -1,7 +1,6 @@
 package server.bin;
 
 import eventmodel.EventOfProtocol;
-import server.SocketServer.SocketListener;
 import server.webServer.WebServer;
 
 public class ServerStart {

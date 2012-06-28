@@ -1,4 +1,4 @@
-package server.SocketServer;
+package server.bin;
 
 import eventmodel.EventsQueue;
 import eventmodel.EventOfProtocol;
