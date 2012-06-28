@@ -1,6 +1,6 @@
 package server.bin;
 
-import eventmodel.EventOfProtocol;
+import server.eventmodel.EventOfProtocol;
 import server.webServer.WebServer;
 
 public class ServerStart {

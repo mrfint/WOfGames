@@ -1,13 +1,13 @@
 package server.bin;
 
-import eventmodel.EventsQueue;
-import eventmodel.EventOfProtocol;
+import server.eventmodel.EventsQueue;
+import server.eventmodel.EventOfProtocol;
 import java.io.*;
 import java.net.*;
 import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import protocolcontrol.ProtocolListenerClient;
+import server.protocolcontrol.ProtocolListenerClient;
 import server.model.client.ClientSocket;
 
 

@@ -1,6 +1,6 @@
 package server.model.client;
 
-import protocolcontrol.ProtocolListenerClient;
+import server.protocolcontrol.ProtocolListenerClient;
 import java.util.Hashtable;
 import java.util.LinkedList;
 import java.util.List;

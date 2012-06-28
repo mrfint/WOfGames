@@ -1,13 +1,14 @@
 package server.bin;
 
-import protocolcontrol.FactoryProtocolEvMngr;
-import protocolcontrol.ProtocolEventMngr;
-import eventmodel.*;
+import server.eventmodel.EventsQueue;
+import server.eventmodel.EventOfProtocol;
+import server.protocolcontrol.FactoryProtocolEvMngr;
+import server.protocolcontrol.ProtocolEventMngr;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.management.Query;
-import protocolcontrol.Game;
+import server.protocolcontrol.Game;
 
 public class ProtocolEventDispetcher extends Thread
 {   

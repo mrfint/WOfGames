@@ -1,9 +1,9 @@
 
 package server.bin;
 
-import eventmodel.EventsQueue;
-import eventmodel.EventOfProtocol;
-import protocolcontrol.ProtocolListenerClient;
+import server.eventmodel.EventsQueue;
+import server.eventmodel.EventOfProtocol;
+import server.protocolcontrol.ProtocolListenerClient;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;

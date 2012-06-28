@@ -1,4 +1,4 @@
-package eventmodel;
+package server.eventmodel;
 
 import java.util.Queue;
 

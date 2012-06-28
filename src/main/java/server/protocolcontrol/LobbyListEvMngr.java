@@ -1,7 +1,7 @@
 
-package protocolcontrol;
+package server.protocolcontrol;
 
-import eventmodel.EventOfProtocol;
+import server.eventmodel.EventOfProtocol;
 import java.util.LinkedList;
 import java.util.List;
 import server.model.client.ClientList;

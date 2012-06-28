@@ -1,12 +1,12 @@
 package server.model.client;
 
-import eventmodel.EventOfProtocol;
+import server.eventmodel.EventOfProtocol;
 import java.io.*;
 import java.net.Socket;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import protocolcontrol.ProtocolListenerClient;
+import server.protocolcontrol.ProtocolListenerClient;
 
 public class ClientSocket extends ProtocolListenerClient{
         

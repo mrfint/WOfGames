@@ -1,9 +1,9 @@
-package protocolcontrol;
+package server.protocolcontrol;
 
 
 
 
-import eventmodel.EventOfProtocol;
+import server.eventmodel.EventOfProtocol;
 
 abstract public class ProtocolListenerClient
 {

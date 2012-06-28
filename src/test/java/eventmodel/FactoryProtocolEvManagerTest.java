@@ -4,8 +4,8 @@
  */
 package eventmodel;
 
-import protocolcontrol.FactoryProtocolEvMngr;
-import protocolcontrol.ProtocolEventMngr;
+import server.protocolcontrol.FactoryProtocolEvMngr;
+import server.protocolcontrol.ProtocolEventMngr;
 import java.util.Arrays;
 import java.util.Collection;
 import org.junit.AfterClass;
