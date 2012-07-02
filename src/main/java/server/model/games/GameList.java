@@ -24,7 +24,7 @@ public class GameList {
 	
 	public void addGame(Game game){
 		
-		lst.put(game.getId(),game);
+
 		
 	}
 	
